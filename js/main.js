@@ -140,7 +140,7 @@
     }
 
     function addCheckbox(el) {
-        console.log($(el).attr('data-id'));
+        //console.log($(el).attr('data-id'));
         var lines = $(el).html().split('\n');
         lines[0] = '<label class="checkbox"><input type="checkbox" id="' + $(el).attr('data-id') + '">' + lines[0] + '</label>';
         $(el).html(lines.join('\n'));
