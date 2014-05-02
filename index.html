@@ -14,6 +14,9 @@
     <![endif]-->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="js/jstorage.js"></script>
+    <script type="text/javascript">
+        var profilesKey = 'profiles';
+    </script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <script type="text/javascript">
@@ -70,43 +73,42 @@
 
             <div class="tab-pane active" id="tabPlaythrough">
 
-                <h2>Playthrough Checklist</h2>
+                <h2>Playthrough Checklist <span id="playthrough_overall_total"></span></h2>
                 <ul>
-                    <li><a href="#Undead_Asylum">Undead Asylum</a> (Level 1)</li>
-                    <li><a href="#Firelink_Shrine">Firelink Shrine</a> (Levels 1-5)</li>
-                    <li><a href="#Undead_Burg">Undead Burg</a> (Levels 5-10)</li>
-                    <li><a href="#Undead_Parish">Undead Parish</a> (Levels 10-20)</li>
-                    <li><a href="#Lower_Undead_Burg">Lower Undead Burg</a> (Levels 20-30)</li>
-                    <li><a href="#The_Depths">The Depths</a> (Levels 20-30)</li>
-                    <li><a href="#Blighttown">Blighttown</a> (Levels 30-40)</li>
-                    <li><a href="#Darkroot_Basin">Darkroot Basin</a> (Level 35+)</li>
-                    <li><a href="#Darkroot_Garden">Darkroot Garden</a> (Level 20+)</li>
-                    <li><a href="#Sens_Fortress">Sen's Fortress</a> (Level 40+)</li>
-                    <li><a href="#Anor_Londo">Anor Londo</a> (Level 50+)</li>
-                    <li><a href="#Undead_Asylum_Revisited">Undead Asylum Revisited</a> (Levels 30-40)</li>
-                    <li><a href="#New_Londo_Ruins">New Londo Ruins</a> (Level 60+)</li>
-                    <li><a href="#The_Great_Hollow">The Great Hollow</a> (Level 50+)</li>
-                    <li><a href="#Ash_Lake">Ash Lake</a> (Level 50+)</li>
-                    <li><a href="#Painted_World_of_Ariamis">Painted World of Ariamis</a> (Level 60+)</li>
-                    <li><a href="#The_Dukes_Archives">The Duke's Archives</a> (Level 60+)</li>
-                    <li><a href="#Crystal_Cave">Crystal Cave</a> (Level 50+)</li>
-                    <li><a href="#Demon_Ruins">Demon Ruins</a> (Level 60+)</li>
-                    <li><a href="#Lost_Izalith">Lost Izalith</a> (Level 75+)</li>
-                    <li><a href="#The_Catacombs">The Catacombs</a> (Level 30-50)</li>
-                    <li><a href="#Tomb_Of_The_Giants">Tomb of the Giants</a> (Level 70+)</li>
-                    <li><a href="#Miscellaneous">Miscellaneous Tasks</a></li>
-                    <li><a href="#Sanctuary_Garden">Sanctuary Garden / Oolacile Sanctuary / Royal Woods</a> (DLC Only)</li>
-                    <li><a href="#Oolacile_Township">Oolacile Township</a> (DLC Only)</li>
-                    <li><a href="#Chasm_of_the_Abyss">Chasm of the Abyss</a> (DLC Only)</li>
-                    <li><a href="#New_Game_Plus">New Game Plus Preparation</a></li>
-                    <li><a href="#Kiln_of_the_First_Flame">Kiln of the First Flame</a> (Level 60-80)</li>
-                    <li>To be continued...</li>
+                    <li><a href="#Undead_Asylum">Undead Asylum</a> (Level 1) <span id="playthrough_nav_totals_1"></span></li>
+                    <li><a href="#Firelink_Shrine">Firelink Shrine</a> (Levels 1-5) <span id="playthrough_nav_totals_2"></span></li>
+                    <li><a href="#Undead_Burg">Undead Burg</a> (Levels 5-10) <span id="playthrough_nav_totals_3"></span></li>
+                    <li><a href="#Undead_Parish">Undead Parish</a> (Levels 10-20) <span id="playthrough_nav_totals_4"></span></li>
+                    <li><a href="#Lower_Undead_Burg">Lower Undead Burg</a> (Levels 20-30) <span id="playthrough_nav_totals_5"></span></li>
+                    <li><a href="#The_Depths">The Depths</a> (Levels 20-30) <span id="playthrough_nav_totals_6"></span></li>
+                    <li><a href="#Blighttown">Blighttown</a> (Levels 30-40) <span id="playthrough_nav_totals_7"></span></li>
+                    <li><a href="#Darkroot_Basin">Darkroot Basin</a> (Level 35+) <span id="playthrough_nav_totals_8"></span></li>
+                    <li><a href="#Darkroot_Garden">Darkroot Garden</a> (Level 20+) <span id="playthrough_nav_totals_9"></span></li>
+                    <li><a href="#Sens_Fortress">Sen's Fortress</a> (Level 40+) <span id="playthrough_nav_totals_10"></span></li>
+                    <li><a href="#Anor_Londo">Anor Londo</a> (Level 50+) <span id="playthrough_nav_totals_11"></span></li>
+                    <li><a href="#Undead_Asylum_Revisited">Undead Asylum Revisited</a> (Levels 30-40) <span id="playthrough_nav_totals_12"></span></li>
+                    <li><a href="#New_Londo_Ruins">New Londo Ruins</a> (Level 60+) <span id="playthrough_nav_totals_13"></span></li>
+                    <li><a href="#The_Great_Hollow">The Great Hollow</a> (Level 50+) <span id="playthrough_nav_totals_14"></span></li>
+                    <li><a href="#Ash_Lake">Ash Lake</a> (Level 50+) <span id="playthrough_nav_totals_15"></span></li>
+                    <li><a href="#Painted_World_of_Ariamis">Painted World of Ariamis</a> (Level 60+) <span id="playthrough_nav_totals_16"></span></li>
+                    <li><a href="#The_Dukes_Archives">The Duke's Archives</a> (Level 60+) <span id="playthrough_nav_totals_17"></span></li>
+                    <li><a href="#Crystal_Cave">Crystal Cave</a> (Level 50+) <span id="playthrough_nav_totals_18"></span></li>
+                    <li><a href="#Demon_Ruins">Demon Ruins</a> (Level 60+) <span id="playthrough_nav_totals_19"></span></li>
+                    <li><a href="#Lost_Izalith">Lost Izalith</a> (Level 75+) <span id="playthrough_nav_totals_20"></span></li>
+                    <li><a href="#The_Catacombs">The Catacombs</a> (Level 30-50) <span id="playthrough_nav_totals_21"></span></li>
+                    <li><a href="#Tomb_Of_The_Giants">Tomb of the Giants</a> (Level 70+) <span id="playthrough_nav_totals_22"></span></li>
+                    <li><a href="#Miscellaneous">Miscellaneous Tasks</a> <span id="playthrough_nav_totals_23"></span></li>
+                    <li><a href="#Sanctuary_Garden">Sanctuary Garden / Oolacile Sanctuary / Royal Woods</a> (DLC Only) <span id="playthrough_nav_totals_24"></span></li>
+                    <li><a href="#Oolacile_Township">Oolacile Township</a> (DLC Only) <span id="playthrough_nav_totals_25"></span></li>
+                    <li><a href="#Chasm_of_the_Abyss">Chasm of the Abyss</a> (DLC Only) <span id="playthrough_nav_totals_26"></span></li>
+                    <li><a href="#New_Game_Plus">New Game Plus Preparation</a> <span id="playthrough_nav_totals_27"></span></li>
+                    <li><a href="#Kiln_of_the_First_Flame">Kiln of the First Flame</a> (Level 60-80) <span id="playthrough_nav_totals_28"></span></li>
                 </ul>
 
                 <hr />
 
                 <a name="Undead_Asylum"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Northern+Undead+Asylum">Undead Asylum</a> (Level 1)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Northern+Undead+Asylum">Undead Asylum</a> (Level 1) <span id="playthrough_totals_1"></span></h3>
                 <ul>
                     <li data-id="playthrough_1_1">Grab the <a href="http://darksoulswiki.wikispaces.com/Dungeon+Cell+Key">Dungeon Cell Key</a></li>
                     <li data-id="playthrough_1_2">Run passed the <a href="http://darksoulswiki.wikispaces.com/Asylum+Demon">Asylum Demon</a> boss or kill him to get the <a href="http://darksoulswiki.wikispaces.com/Demon%27s+Great+Hammer">Demon's Great Hammer</a></li>
@@ -120,7 +122,7 @@
                 </ul>
 
                 <a name="Firelink_Shrine"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Firelink+Shrine">Firelink Shrine</a> (Levels 1-5)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Firelink+Shrine">Firelink Shrine</a> (Levels 1-5) <span id="playthrough_totals_2"></span></h3>
                 <ul>
                     <li data-id="playthrough_2_1">Talk to the <a href="http://darksoulswiki.wikispaces.com/Crestfallen+Warrior">Crestfallen Warrior</a></li>
                     <li data-id="playthrough_2_2">Talk to <a href="http://darksoulswiki.wikispaces.com/Petrus+of+Thorolund">Petrus of Thorolund</a> to get the <a href="http://darksoulswiki.wikispaces.com/Copper+Coin">Copper Coin</a> and optionally join the <a href="http://darksoulswiki.wikispaces.com/Way+of+White">Way of White</a> covenant</li>
@@ -139,7 +141,7 @@
                 </ul>
 
                 <a name="Undead_Burg"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Undead+Burg">Undead Burg</a> (Levels 5-10)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Undead+Burg">Undead Burg</a> (Levels 5-10) <span id="playthrough_totals_3"></span></h3>
                 <ul>
                     <li data-id="playthrough_3_1">Remember about the Dragon and the archer!</li>
                     <li data-id="playthrough_3_2">Optionally kill the <a href="http://darksoulswiki.wikispaces.com/Undead+Merchant">Undead Merchant</a> to get the <a href="http://darksoulswiki.wikispaces.com/Uchigatana">Uchigatana</a>, <a href="http://darksoulswiki.wikispaces.com/Residence+Key">Residence Key</a>, <a href="http://darksoulswiki.wikispaces.com/Orange+Guidance+Soapstone">Orange Guidance Soapstone</a> and <a href="http://darksoulswiki.wikispaces.com/Humanity">Humanity</a></li>
@@ -180,7 +182,7 @@
                 </ul>
 
                 <a name="Undead_Parish"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Undead+Parish">Undead Parish</a> (Levels 10-20)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Undead+Parish">Undead Parish</a> (Levels 10-20) <span id="playthrough_totals_4"></span></h3>
                 <ul>
                     <li data-id="playthrough_4_1">Kill the <a href="http://darksoulswiki.wikispaces.com/The+Black+Knight">Black Knight</a> up in the tower to get the <a href="http://darksoulswiki.wikispaces.com/Titanite+Chunk">Titanite Chunk</a></li>
                     <li data-id="playthrough_4_2">Kill the <a href="http://darksoulswiki.wikispaces.com/Mecha+Boar">Mecha Boar</a></li>
@@ -225,7 +227,7 @@
                 </ul>
 
                 <a name="Lower_Undead_Burg"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Undead+Burg#Lower Undead Burg">Lower Undead Burg</a> (Levels 20-30)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Undead+Burg#Lower Undead Burg">Lower Undead Burg</a> (Levels 20-30) <span id="playthrough_totals_5"></span></h3>
                 <ul>
                     <li data-id="playthrough_5_1">Open the shortcut to the <a href="http://darksoulswiki.wikispaces.com/Undead+Burg">Undead Burg</a></li>
                     <li data-id="playthrough_5_2">Use the <a href="http://darksoulswiki.wikispaces.com/Residence+Key">Residence Key</a> to free <a href="http://darksoulswiki.wikispaces.com/Griggs+of+Vinheim">Griggs of Vinheim</a> from the house and pick up the <a href="http://darksoulswiki.wikispaces.com/Sorcerer+Set">Sorcerer Set</a> and <a href="http://darksoulswiki.wikispaces.com/Sorcerer's+Catalyst">Sorcerer's Catalyst</a></li>
@@ -249,7 +251,7 @@
                 </ul>
 
                 <a name="The_Depths"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Depths">The Depths</a> (Levels 20-30)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Depths">The Depths</a> (Levels 20-30) <span id="playthrough_totals_6"></span></h3>
                 <ul>
                     <li data-id="playthrough_6_1">Kill the first <a href="http://darksoulswiki.wikispaces.com/Butcher">Butcher</a> and get the <a href="http://darksoulswiki.wikispaces.com/Large+Ember">Large Ember</a> from the chest</li>
                     <li data-id="playthrough_6_2">Free <a href="http://darksoulswiki.wikispaces.com/Laurentius+of+the+Great+Swamp">Laurentius of the Great Swamp</a> by rolling in to the barrels and talk to him</li>
@@ -278,7 +280,7 @@
                 </ul>
 
                 <a name="Blighttown"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Blighttown">Blighttown</a> (Levels 30-40)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Blighttown">Blighttown</a> (Levels 30-40) <span id="playthrough_totals_7"></span></h3>
                 <ul>
                     <li data-id="playthrough_7_1">Take it slowly. Be wary of <a href="http://darksoulswiki.wikispaces.com/Blowdart+Sniper">Blowdart Snipers</a>!</li>
                     <li data-id="playthrough_7_2">Make a running jump to get the <a href="http://darksoulswiki.wikispaces.com/Iaito">Iaito</a>, aim for the post</li>
@@ -342,7 +344,7 @@
                 </ul>
 
                 <a name="Darkroot_Basin"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Darkroot+Basin">Darkroot Basin</a> (Level 35+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Darkroot+Basin">Darkroot Basin</a> (Level 35+) <span id="playthrough_totals_8"></span></h3>
                 <ul>
                     <li data-id="playthrough_8_1">Head to the <a href="http://darksoulswiki.wikispaces.com/Undead+Parish">Undead Parish</a> and rest at the bonfire above Andre</li>
                     <li data-id="playthrough_8_2">Give the <a href="http://darksoulswiki.wikispaces.com/Large+Ember">Large Ember</a> to <a href="http://darksoulswiki.wikispaces.com/Blacksmith+Andrei">Andre the Blacksmith</a> and upgrade your weapons</li>
@@ -363,7 +365,7 @@
 
 
                 <a name="Darkroot_Garden"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Darkroot+Garden">Darkroot Garden</a> (Level 20+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Darkroot+Garden">Darkroot Garden</a> (Level 20+) <span id="playthrough_totals_9"></span></h3>
                 <ul>
                     <li data-id="playthrough_9_1">Kill the three <a href="http://darksoulswiki.wikispaces.com/Giant+Cat">Giant Cats</a></li>
                     <li data-id="playthrough_9_2">Draw out the <a href="http://darksoulswiki.wikispaces.com/Mushroom+People">Mushroom People</a> and get the <a href="http://darksoulswiki.wikispaces.com/Enchanted+Ember">Enchanted Ember</a> from the chest</li>
@@ -409,7 +411,7 @@
                 </ul>
 
                 <a name="Sens_Fortress"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Sen%27s+Fortress">Sen's Fortress</a> (Level 40+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Sen%27s+Fortress">Sen's Fortress</a> (Level 40+) <span id="playthrough_totals_10"></span></h3>
                 <ul>
                     <li data-id="playthrough_10_1">Cross the bridge to <a href="http://darksoulswiki.wikispaces.com/Sen%27s+Fortress">Sen's Fortress</a></li>
                     <li data-id="playthrough_10_2">Cross the first swinging blade walkway, remembering about the <a href="http://darksoulswiki.wikispaces.com/Man-Serpent#Snake-Headed%20Mage">Serpent Mage</a> trying to knock you off</li>
@@ -458,7 +460,7 @@
                 </ul>
 
                 <a name="Anor_Londo"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Anor+Londo">Anor Londo</a> (Level 45+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Anor+Londo">Anor Londo</a> (Level 45+) <span id="playthrough_totals_11"></span></h3>
                 <ul>
                     <li data-id="playthrough_11_1">Run passed the <a href="http://darksoulswiki.wikispaces.com/Sentinel">Sentinels</a>, light the bonfire, talk to <a href="http://darksoulswiki.wikispaces.com/Darkmoon+Knightess">Darkmoon Knightess</a> and reinforce your <a href="http://darksoulswiki.wikispaces.com/Estus+Flask">Estus Flask</a> if you need to</li>
                     <li data-id="playthrough_11_2">Kill the two <a href="http://darksoulswiki.wikispaces.com/Sentinel">Sentinels</a> you ran passed and open the chest to get a <a href="http://darksoulswiki.wikispaces.com/Demon+Titanite">Demon Titanite</a></li>
@@ -534,7 +536,7 @@
                 </ul>
 
                 <a name="Undead_Asylum_Revisited"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Northern+Undead+Asylum">Undead Asylum Revisited</a> (Levels 30-40)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Northern+Undead+Asylum">Undead Asylum Revisited</a> (Levels 30-40) <span id="playthrough_totals_12"></span></h3>
                 <ul>
                     <li data-id="playthrough_12_1">Remember about the collapsing floor!</li>
                     <li data-id="playthrough_12_2">Kill the <a href="http://darksoulswiki.wikispaces.com/Stray+Demon">Stray Demon</a> to get a <a href="http://darksoulswiki.wikispaces.com/Titanite+Slab">Titanite Slab</a></li>
@@ -546,7 +548,7 @@
 
 
                 <a name="New_Londo_Ruins"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/New+Londo+Ruins">New Londo Ruins</a> (Levels 60+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/New+Londo+Ruins">New Londo Ruins</a> (Levels 60+) <span id="playthrough_totals_13"></span></h3>
                 <ul>
                     <li data-id="playthrough_13_1">Run up to the <a href="http://darksoulswiki.wikispaces.com/Undead+Merchant+%28Female%29">Female Undead Merchant</a> in the aqueduct and buy all the <a href="http://darksoulswiki.wikispaces.com/Transient+Curse">Transient Curses</a> she has and equip them</li>
                     <li data-id="playthrough_13_2">Go down to <a href="http://darksoulswiki.wikispaces.com/New+Londo+Ruins">New Londo Ruins</a></li>
@@ -584,7 +586,7 @@
                 </ul>
 
                 <a name="The_Great_Hollow"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/The+Great+Hollow">The Great Hollow</a> (Levels 50+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/The+Great+Hollow">The Great Hollow</a> (Levels 50+) <span id="playthrough_totals_14"></span></h3>
                 <p><em>Note: It's very hard to give good directions for this section due to the maze of branches and random spawning patterns of the <a href="http://darksoulswiki.wikispaces.com/Crystal+Lizard">Crystal Lizards</a></em></p>
                 <ul>
                     <li data-id="playthrough_14_1">Light and rest at the bonfire after you go down the first ladder</li>
@@ -598,7 +600,7 @@
                 </ul>
 
                 <a name="Ash_Lake"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Ash+Lake">Ash Lake</a> (Levels 50+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Ash+Lake">Ash Lake</a> (Levels 50+) <span id="playthrough_totals_15"></span></h3>
                 <ul>
                     <li data-id="playthrough_15_1">Light and rest at the bonfire</li>
                     <li data-id="playthrough_15_2">Kill the <a href="http://darksoulswiki.wikispaces.com/Black+Hydra">Black Hydra</a> to get two <a href="http://darksoulswiki.wikispaces.com/Dragon+Scale">Dragon Scales</a> and then get one more from the corpse to the left</li>
@@ -612,7 +614,7 @@
                 </ul>
 
                 <a name="Painted_World_of_Ariamis"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Painted+World+of+Ariamis">Painted World of Ariamis</a> (Levels 60+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Painted+World+of+Ariamis">Painted World of Ariamis</a> (Levels 60+) <span id="playthrough_totals_16"></span></h3>
                 <ul>
                     <li data-id="playthrough_16_1">Go down the elevator and turn the platform lever anti-clockwise and enter the chapel</li>
                     <li data-id="playthrough_16_2">Pick up the <a href="http://darksoulswiki.wikispaces.com/Great+Magic+Weapon">Great Magic Weapon</a> sorcery, <a href="http://darksoulswiki.wikispaces.com/Black+Iron+Set">Black Iron Set</a>, <a href="http://darksoulswiki.wikispaces.com/Greatsword">Greatsword</a> and <a href="http://darksoulswiki.wikispaces.com/Black+Iron+Greatshield">Black Iron Greatshield</a></li>
@@ -654,7 +656,7 @@
                 </ul>
 
                 <a name="The_Dukes_Archives"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/The+Duke%27s+Archives">The Duke's Archives</a> (Levels 60+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/The+Duke%27s+Archives">The Duke's Archives</a> (Levels 60+) <span id="playthrough_totals_17"></span></h3>
                 <ul>
                     <li data-id="playthrough_17_1">Kill the two <a href="http://darksoulswiki.wikispaces.com/Mecha+Boar">Mecha Boars</a> and rest at the bonfire</li>
                     <li data-id="playthrough_17_2">Go up the first elevator and kill the <a href="http://darksoulswiki.wikispaces.com/Crystal+Golem">Crystal Golem</a> to get the <a href="http://darksoulswiki.wikispaces.com/Broken+Pendant">Broken Pendant</a> (DLC Only)</li>
@@ -689,7 +691,7 @@
                 </ul>
 
                 <a name="Crystal_Cave"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Crystal+Cave">Crystal Cave</a> (Levels 50+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Crystal+Cave">Crystal Cave</a> (Levels 50+) <span id="playthrough_totals_18"></span></h3>
                 <ul>
                     <li data-id="playthrough_18_1">Take the first invisible path and get the <a href="http://darksoulswiki.wikispaces.com/Humanity">Humanity</a></li>
                     <li data-id="playthrough_18_2">Take the next invisible path, kill the <a href="http://darksoulswiki.wikispaces.com/Crystal+Golem">Crystal Golem</a>, drop off to the left and double back in to the small tunnel behind you and kill the three <a href="http://darksoulswiki.wikispaces.com/Crystal+Lizard">Crystal Lizards</a></li>
@@ -722,7 +724,7 @@
                 </ul>
 
                 <a name="Demon_Ruins"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Demon+Ruins">Demon Ruins</a> (Levels 60+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Demon+Ruins">Demon Ruins</a> (Levels 60+) <span id="playthrough_totals_19"></span></h3>
                 <ul>
                     <li data-id="playthrough_19_1">Kill the <a href="http://darksoulswiki.wikispaces.com/Ceaseless+Discharge">Ceasless Discharge</a>
                         <ul>
@@ -759,7 +761,7 @@
                 </ul>
 
                 <a name="Lost_Izalith"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Lost+Izalith">Lost Izalith</a> (Levels 75+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Lost+Izalith">Lost Izalith</a> (Levels 75+) <span id="playthrough_totals_20"></span></h3>
                 <ul>
                     <li data-id="playthrough_20_1">Make your way to the first building, picking up the two souls along the way, and open the chest inside to get another soul</li>
                     <li data-id="playthrough_20_2">Run up the branch of the next building and get the <a href="http://darksoulswiki.wikispaces.com/twin+Humanities">Twin Humanities</a></li>
@@ -789,7 +791,7 @@
                 </ul>
 
                 <a name="The_Catacombs"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/The+Catacombs">The Catacombs</a> (Levels 30-50)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/The+Catacombs">The Catacombs</a> (Levels 30-50) <span id="playthrough_totals_21"></span></h3>
                 <ul>
                     <li data-id="playthrough_21_1">Go down to the first bonfire, kill the <a href="http://darksoulswiki.wikispaces.com/Undead+Mage">Undead Mage</a> and pull the first switch</li>
                     <li data-id="playthrough_21_2">Use a ranged attack to take out the next <a href="http://darksoulswiki.wikispaces.com/Undead+Mage">Undead Mage</a></li>
@@ -823,7 +825,7 @@
                 </ul>
 
                 <a name="Tomb_Of_The_Giants"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Tomb+of+Giants">Tomb of the Giants</a> (Levels 70+)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Tomb+of+Giants">Tomb of the Giants</a> (Levels 70+) <span id="playthrough_totals_22"></span></h3>
                 <ul>
                     <li data-id="playthrough_22_1">If you got the <a href="http://darksoulswiki.wikispaces.com/Sunlight+Maggot">Sunlight Maggot</a> then wear it otherwise put the <a href="http://darksoulswiki.wikispaces.com/Skull+Lantern">Skull Lantern</a> in your left hand</li>
                     <li data-id="playthrough_22_2">Slide down the coffins, climb down the ladder and rest at the bonfire</li>
@@ -849,7 +851,7 @@
                 </ul>
 
                 <a name="Miscellaneous"></a>
-                <h3>Miscellaneous Tasks</h3>
+                <h3>Miscellaneous Tasks <span id="playthrough_totals_23"></span></h3>
                 <ul>
                     <li data-id="playthrough_23_1">Drop down the hole, offer the Lord Souls, warp back to the shrine and talk to <a href="http://darksoulswiki.wikispaces.com/Anastacia+of+Astora">Anastacia of Astora</a> to fully kindle the shrine bonfire</li>
                     <li data-id="playthrough_23_2">Talk to <a href="http://darksoulswiki.wikispaces.com/Patches+the+Hyena">Patches</a>, learn his Prostration gesture and buy anything you need from him
@@ -890,7 +892,7 @@
                 </ul>
 
                 <a name="Sanctuary_Garden"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Sanctuary+Garden">Sanctuary Guarden</a> / <a href="http://darksoulswiki.wikispaces.com/Oolacile+Sanctuary">Oolacile Sanctuary</a> / <a href="http://darksoulswiki.wikispaces.com/Royal+Woods">Royal Woods</a> (DLC Only)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Sanctuary+Garden">Sanctuary Guarden</a> / <a href="http://darksoulswiki.wikispaces.com/Oolacile+Sanctuary">Oolacile Sanctuary</a> / <a href="http://darksoulswiki.wikispaces.com/Royal+Woods">Royal Woods</a> (DLC Only) <span id="playthrough_totals_24"></span></h3>
                 <ul>
                     <li data-id="playthrough_24_1">Go down to <a href="http://darksoulswiki.wikispaces.com/Darkroot+Basin">Darkroot Basin</a> and examine the portal found near where you fought the <a href="http://darksoulswiki.wikispaces.com/Golden+Crystal+Golem">Golden Crystal Golem</a></li>
                     <li data-id="playthrough_24_2">Rest at the bonfire and continue through the fog gate and kill the <a href="http://darksoulswiki.wikispaces.com/Sanctuary+Guardian">Sanctuary Guardian</a>
@@ -917,7 +919,7 @@
                 </ul>
 
                 <a name="Oolacile_Township"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Oolacile+Township">Oolacile Township</a> (DLC Only)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Oolacile+Township">Oolacile Township</a> (DLC Only) <span id="playthrough_totals_25"></span></h3>
                 <ul>
                     <li data-id="playthrough_25_1">Make sure you have either a <a href="http://darksoulswiki.wikispaces.com/Skull+Lantern">Skull Lantern</a>, <a href="http://darksoulswiki.wikispaces.com/Sunlight+Maggot">Sunlight Maggot</a> or the <a href="http://darksoulswiki.wikispaces.com/Cast+Light">Cast Light</a> sorcery</li>
                     <li data-id="playthrough_25_2">Continue down the steps and stick to the right, grabbing the souls along the way, go around the back of the building and roll down to the next ledge</li>
@@ -944,7 +946,7 @@
                 </ul>
 
                 <a name="Chasm_of_the_Abyss"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Chasm+of+the+Abyss">Chasm of the Abyss</a> (DLC Only)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Chasm+of+the+Abyss">Chasm of the Abyss</a> (DLC Only) <span id="playthrough_totals_26"></span></h3>
                 <ul>
                     <li data-id="playthrough_26_1">Make sure you have your light source equipped, go down the path, quickly kill the <a href="http://darksoulswiki.wikispaces.com/Crystal+Lizard">Crystal Lizard</a>, kill all the Bloatheads and get the <a href="http://darksoulswiki.wikispaces.com/Dark+Bead">Dark Bead</a> sorcery</li>
                     <li data-id="playthrough_26_2">Continue down, walk on to the illusory floor on the left, follow the apparition and use the elevator to open a shortcut back to <a href="http://darksoulswiki.wikispaces.com/Royal+Woods">Royal Woods</a></li>
@@ -963,7 +965,7 @@
                 </ul>
 
                 <a name="New_Game_Plus"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/New+Game+Plus">New Game Plus Preparation</a></h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/New+Game+Plus">New Game Plus Preparation</a> <span id="playthrough_totals_27"></span></h3>
                 <ul>
                     <li data-id="playthrough_27_1">Farm some <a href="http://darksoulswiki.wikispaces.com/Humanity">Humanity</a> if needed and kindle all the <a href="http://darksoulswiki.wikispaces.com/Bonfire">Bonfires</a></li>
                     <li data-id="playthrough_27_2">If you missed any <a href="http://darksoulswiki.wikispaces.com/Upgrades#Ore">Titanites</a> or <a href="http://darksoulswiki.wikispaces.com/Crystal+Lizard">Crystal Lizards</a> go and get them</li>
@@ -979,7 +981,7 @@
                 </ul>
 
                 <a name="Kiln_of_the_First_Flame"></a>
-                <h3><a href="http://darksoulswiki.wikispaces.com/Kiln+of+the+first+flame">Kiln of the First Flame</a> (Levels 60-80)</h3>
+                <h3><a href="http://darksoulswiki.wikispaces.com/Kiln+of+the+first+flame">Kiln of the First Flame</a> (Levels 60-80) <span id="playthrough_totals_28"></span></h3>
                 <ul>
                     <li data-id="playthrough_28_1">Drop down the hole and if you haven't already then offer the Lord Souls</li>
                     <li data-id="playthrough_28_2">Farm the <a href="http://darksoulswiki.wikispaces.com/Black+Knight">Black Knights</a> for chunks</li>
@@ -998,19 +1000,19 @@
 
             <div class="tab-pane" id="tabChecklists">
 
-                <h2>Checklists</h2>
+                <h2>Checklists <span id="checklist_overall_total"></span></h2>
                 <ul>
-                    <li><a href="#Knights_Honor">Knights Honor Achievement</a> (Obtain 49 rare weapons)</li>
-                    <li><a href="#Wisdom_of_a_Sage">Wisdom of a Sage Achievement</a> (Obtain 24 sorceries)</li>
-                    <li><a href="#Bond_of_a_Pyromancer">Bond of a Pyromancer Achievement</a> (Obtain 19 pyromancies)</li>
-                    <li><a href="#Prayer_of_a_Maiden">Prayer of a Maiden Achievement</a> (Obtain 23 miracles)</li>
+                    <li><a href="#Knights_Honor">Knights Honor Achievement</a> (Obtain 49 rare weapons) <span id="checklist_nav_totals_1"></span></li>
+                    <li><a href="#Wisdom_of_a_Sage">Wisdom of a Sage Achievement</a> (Obtain 24 sorceries) <span id="checklist_nav_totals_2"></span></li>
+                    <li><a href="#Bond_of_a_Pyromancer">Bond of a Pyromancer Achievement</a> (Obtain 19 pyromancies) <span id="checklist_nav_totals_3"></span></li>
+                    <li><a href="#Prayer_of_a_Maiden">Prayer of a Maiden Achievement</a> (Obtain 23 miracles) <span id="checklist_nav_totals_4"></span></li>
                     <h3></h3>
                 </ul>
 
                 <hr />
 
                 <a name="Knights_Honor"></a>
-                <h3>Knights Honor Achievement (Obtain 49 rare weapons)</h3>
+                <h3>Knights Honor Achievement (Obtain 49 rare weapons) <span id="checklist_totals_1"></span></h3>
                 <ul>
                     <li data-id="checklist_1_1"><a href="http://darksoulswiki.wikispaces.com/Astora%27s+Straight+Sword">Astora's Straight Sword</a> - Beside the <a href="http://darksoulswiki.wikispaces.com/Undead+Dragon">Undead Dragon</a> in the <a href="http://darksoulswiki.wikispaces.com/Valley+of+Drakes">Valley of Drakes</a></li>
                     <li data-id="checklist_1_2"><a href="http://darksoulswiki.wikispaces.com/Black+Iron+Greatshield">Black Iron Greatshield</a> - Near the painting in <a href="http://darksoulswiki.wikispaces.com/Anor+Londo">Anor Londo</a> that leads to <a href="http://darksoulswiki.wikispaces.com/Painted+World+of+Ariamis">Painted World of Ariamis</a></li>
@@ -1064,7 +1066,7 @@
                 </ul>
 
                 <a name="Wisdom_of_a_Sage"></a>
-                <h3>Wisdom of a Sage Achievement (Obtain 24 sorceries)</h3>
+                <h3>Wisdom of a Sage Achievement (Obtain 24 sorceries) <span id="checklist_totals_2"></span></h3>
                 <ul>
                     <li data-id="checklist_2_1"><a href="http://darksoulswiki.wikispaces.com/Aural+Decoy">Aural Decoy</a> - Sold by <a href="http://darksoulswiki.wikispaces.com/Griggs+of+Vinheim">Griggs</a></li>
                     <li data-id="checklist_2_2"><a href="http://darksoulswiki.wikispaces.com/Cast+Light">Cast Light</a> - Sold by <a href="http://darksoulswiki.wikispaces.com/Dusk+of+Oolacile">Dusk of Oolacile</a></li>
@@ -1093,7 +1095,7 @@
                 </ul>
 
                 <a name="Bond_of_a_Pyromancer"></a>
-                <h3>Bond of a Pyromancer Achievement (Obtain 19 pyromancies)</h3>
+                <h3>Bond of a Pyromancer Achievement (Obtain 19 pyromancies) <span id="checklist_totals_3"></span></h3>
                 <ul>
                     <li data-id="checklist_3_1"><a href="http://darksoulswiki.wikispaces.com/Acid+Surge">Acid Surge</a> - Found in the open area after the shortcut in the <a href="http://darksoulswiki.wikispaces.com/Painted+World+of+Ariamis">Painted World of Ariamis</a></li>
                     <li data-id="checklist_3_2"><a href="http://darksoulswiki.wikispaces.com/Chaos+Fire+Whip">Chaos Fire Whip</a> - Found in a chest behind the second <a href="http://darksoulswiki.wikispaces.com/Chaos+Eater">Chaos Eater</a> in <a href="http://darksoulswiki.wikispaces.com/Lost+Izalith">Lost Izalith</a></li>
@@ -1117,7 +1119,7 @@
                 </ul>
 
                 <a name="Prayer_of_a_Maiden"></a>
-                <h3>Prayer of a Maiden Achievement (Obtain 23 miracles)</h3>
+                <h3>Prayer of a Maiden Achievement (Obtain 23 miracles) <span id="checklist_totals_4"></span></h3>
                 <ul>
                     <li data-id="checklist_4_1"><a href="http://darksoulswiki.wikispaces.com/Bountiful+Sunlight">Bountiful Sunlight</a> - Dropped by a <a href="http://darksoulswiki.wikispaces.com/Pisaca">Pisaca</a> at the botton of the <a href="http://darksoulswiki.wikispaces.com/The+Duke%27s+Archives">The Duke's Archives</a> prison area</li>
                     <li data-id="checklist_4_2"><a href="http://darksoulswiki.wikispaces.com/Darkmoon+Blade">Darkmoon Blade</a> - Reward for rank 1 (10 <a href="http://darksoulswiki.wikispaces.com/Souvenir+of+Reprisal">Souvenirs of Reprisal</a>) the <a href="http://darksoulswiki.wikispaces.com/Blade+of+the+Dark+Moon">Blade of the Dark Moon</a> covenant</li>
